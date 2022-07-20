@@ -1,9 +1,36 @@
-import React from 'react'
+import React, { useEffect, useState } from "react";
+import { getAllShips } from "../component/api";
 
 function Vehicle() {
-  return (
-    <div>Vehicle</div>
-  )
-}
+  const [vehicle, setShip] = useState([]);
+      useEffect(() => {
+        const fn = async () => {
+          const apiShip = await getAllShips();
+          return setShip(apiShip);
+        };
+        fn();
+      }, []);
+    
+      return (
+        <>
+          <div>
+            {vehicle.map( (item, index) => 
+              <div key={index} className="card" style={{ width: "18rem",  display:"inline-block"  }}>
+                <img src="http://fakeimg.pl/400x200" className="card-img-top" alt="..." />
+                <div className="card-body">
+                  <h5 className="card-title">{item.name}</h5>
+                  <p className="card-text">
+                   {item.url}
+                  </p>
+                  <a href="#" className="btn btn-primary">
+                    Learn more
+                  </a>
+                </div>
+              </div>
+            )}
+          </div>
+        </>
+      );
+    }
 
 export default Vehicle

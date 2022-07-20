@@ -25,19 +25,17 @@ const Layout = () => {
               <Home />
             </Route>
 
-            <Route exact path="/people/:theid">
+            <Route exact path="/people">
               <People />
             </Route>
-            <Route exact path="/planet/:theid">
+            <Route exact path="/planet">
               <Planet />
             </Route>
-            <Route exact path="/vehicle/:theid">
+            <Route exact path="/vehicle">
               <Vehicle />
             </Route>
           </Switch>
-          <Route>
-            <h1>Not found!</h1>
-          </Route>
+          <Route></Route>
           <Footer />
         </ScrollToTop>
       </BrowserRouter>
