@@ -6,7 +6,7 @@ import Planet from "./Planet.jsx";
 import Vehicle from "./Vehicle.jsx";
 
 export const Home = () => (
-  <div className=".container">
+  <div className=".container" style={{backgroundImage: `url("https://images.unsplash.com/photo-1541280910158-c4e14f9c94a3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8ZGFyayUyMHNwYWNlfGVufDB8fDB8fA%3D%3D&w=1000&q=80")`,backgroundAttachment:"fixed", paddingTop:"7%"}}>
     <h1>Characters</h1>
     <People />
 

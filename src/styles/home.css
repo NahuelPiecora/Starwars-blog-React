@@ -1,6 +1,12 @@
 h1{
     color:red;
+    text-shadow: 5px 5px 20px rgba(255, 4, 0, 0.7);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding-left: 10px;
+    
 }
+
+
+
 
 .container{overflow-y: scroll;}

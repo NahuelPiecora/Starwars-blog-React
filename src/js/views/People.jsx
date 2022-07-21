@@ -23,6 +23,9 @@ function People() {
                 width: "18rem",
                 display: "inline-block",
                 margin: "10px",
+                border:"1px solid white",
+                
+          
               }}
             >
               <img
@@ -33,7 +36,7 @@ function People() {
               <div className="card-body">
                 <h5 className="card-title">{item.name}</h5>
                 <p className="card-text">{item.url}</p>
-                <a href="#" className="btn btn-primary">
+                <a href="#" className="btn btn-outline-none" style={{backgroundColor:"red", outline:"none"}}>
                   Learn more
                 </a>
                 <div style={{ display:"inline-block", marginLeft:"45%", fontSize:"25px"}}>

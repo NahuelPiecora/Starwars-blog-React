@@ -3,7 +3,10 @@ import { Link } from "react-router-dom";
 
 export const Navbar = () => {
   return (
-    <nav className="navbar navbar-light bg-light mb-3">
+    <nav
+      className="navbar navbar-light bg-light mb-3 fixed-top"
+      style={{ height:"90px",paddingLeft: "5%", paddingRight: "5%" }}
+    >
       <Link to="/">
         <span className="navbar-brand mb-0 h1">
           {" "}
@@ -18,12 +21,12 @@ export const Navbar = () => {
         <Link to="/demo">
           <div className="dropdown">
             <button
-              className="btn btn-secondary dropdown-toggle"
+              className="btn btn-outline-none" style={{backgroundColor:"red", outline:"none"}}
               type="button"
               data-bs-toggle="dropdown"
               aria-expanded="false"
             >
-              Dropdown  
+              Favorites
             </button>
             <ul className="dropdown-menu">
               <li>
