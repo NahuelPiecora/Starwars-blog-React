@@ -16,7 +16,7 @@ function People() {
   return (
     <>
       <div style={{ display: "flex", overflowX: "scroll" }}>
-        {people.map((item, index) => (
+        {people.map((item, index) =>( 
           <div key={index}>
             <div
               className="card"
@@ -36,7 +36,7 @@ function People() {
                 <h5 className="card-title">{item.name}</h5>
                 <p className="card-text">{item.url}</p>
                 <Link
-                  to={`/people`}
+                  to={`/people/${item.uid}`}
                   className="btn btn-outline-none"
                   style={{ backgroundColor: "red", outline: "none" }}
                 >

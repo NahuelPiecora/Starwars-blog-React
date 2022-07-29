@@ -8,6 +8,7 @@ import { Footer } from "./component/footer";
 import People from "./views/People.jsx";
 import Planet from "./views/Planet.jsx";
 import Vehicle from "./views/Vehicle.jsx";
+import Individualperson from "./views/Individualperson.jsx";
 
 //create your first component
 const Layout = () => {
@@ -25,8 +26,8 @@ const Layout = () => {
               <Home />
             </Route>
 
-            <Route exact path="/people">
-              <People />
+            <Route exact path="/:type/:theId" >
+              <Individualperson />
             </Route>
             <Route exact path="/planet">
               <Planet />
