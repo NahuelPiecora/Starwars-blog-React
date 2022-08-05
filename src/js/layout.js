@@ -9,6 +9,7 @@ import People from "./views/People.jsx";
 import Planet from "./views/Planet.jsx";
 import Vehicle from "./views/Vehicle.jsx";
 import Individualperson from "./views/Individualperson.jsx";
+import Individualplanet from "./views/Individualplanet.jsx";
 
 //create your first component
 const Layout = () => {
@@ -29,8 +30,8 @@ const Layout = () => {
             <Route exact path="/:type/:theId" >
               <Individualperson />
             </Route>
-            <Route exact path="/planet">
-              <Planet />
+            <Route exact path="/planets/:theId" >
+            < Individualplanet />
             </Route>
             <Route exact path="/vehicle">
               <Vehicle />

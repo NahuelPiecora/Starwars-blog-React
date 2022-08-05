@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { getAllPlanets } from "../component/api";
 import { GiScoutShip } from "react-icons/gi";
+import { Link } from "react-router-dom";
+
 
 function Planet() {
   const [planet, setPlanet] = useState([]);
   useEffect(() => {
     const fn = async () => {
       const apiPlanet = await getAllPlanets();
+      console.log(apiPlanet)
       return setPlanet(apiPlanet);
     };
     fn();
@@ -35,13 +38,13 @@ function Planet() {
               <div className="card-body">
                 <h5 className="card-title">{item.name}</h5>
                 <p className="card-text">{item.url}</p>
-                <a
-                  href="#"
+                <Link
+                  to={`/planets/${item.uid}`}
                   className="btn btn-outline-none"
                   style={{ backgroundColor: "red", outline: "none" }}
                 >
                   Learn more
-                </a>
+                </Link>
                 <div
                   style={{
                     display: "inline-block",
