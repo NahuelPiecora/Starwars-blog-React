@@ -15,7 +15,7 @@ function Individualplanet() {
   useEffect(() => {
     actions.getAllPlanets();
     setItem(store[params.type][params.theId]);
-    console.log(params)
+    console.log(params);
   }, []);
 
   return (

@@ -27,11 +27,11 @@ const Layout = () => {
               <Home />
             </Route>
 
+            <Route exact path="/planets/:theId" >
+              < Individualplanet />
+            </Route>
             <Route exact path="/:type/:theId" >
               <Individualperson />
-            </Route>
-            <Route exact path="/planets/:theId" >
-            < Individualplanet />
             </Route>
             <Route exact path="/vehicle">
               <Vehicle />
