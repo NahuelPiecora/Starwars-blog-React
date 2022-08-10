@@ -4,7 +4,6 @@ const getState = ({ getStore, getActions, setStore }) => {
       people: [],
       planets: [],
       ships: [],
-
       demo: [
         {
           title: "FIRST",
@@ -50,7 +49,6 @@ const getState = ({ getStore, getActions, setStore }) => {
       getAllPlanets: async () => {
         const response = await fetch("https://www.swapi.tech/api/planets");
         const payload = await response.json();
-
         setStore({ planets: payload.results });
       },
 

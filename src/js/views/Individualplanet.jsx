@@ -9,12 +9,12 @@ function Individualplanet() {
   const { store, actions } = useContext(Context);
   const params = useParams();
   console.log("params", params);
-  console.log(store.people);
+  console.log(store.planets);
 
   const [item, setItem] = useState([]);
   useEffect(() => {
     actions.getAllPlanets();
-    setItem(store[params.type][params.theId]);
+    setItem(store[params.planets][params.theId]);
     console.log(params);
   }, []);
 
@@ -48,27 +48,27 @@ function Individualplanet() {
             <div className="row">
               <div className="col">
                 <h2>Name</h2>
-                <span>{store[params.type][params.theId - 1]?.name} </span>
+                <span>{store[params?.planets][params.theId - 1]?.name} </span>
               </div>
               <div className="col">
                 <h2>Diameter</h2>
-                <span>{store[params.type][params.theId - 1]?.diameter}</span>
+                <span>{store[params?.planets][params.theId - 1]?.diameter}</span>
               </div>
               <div className="col">
                 <h2>Climate</h2>
-                <span>{store[params.type][params.theId - 1]?.climate}</span>
+                <span>{store[params?.planets][params.theId - 1]?.climate}</span>
               </div>
               <div className="col">
                 <h2>Population</h2>
-                <span>{store[params.type][params.theId - 1]?.population}</span>
+                <span>{store[params?.planets][params.theId - 1]?.population}</span>
               </div>
               <div className="col">
                 <h2>Terrain</h2>
-                <span>{store[params.type][params.theId - 1]?.terrain}</span>
+                <span>{store[params?.planets][params.theId - 1]?.terrain}</span>
               </div>
               <div className="col">
                 <h2>Gravity </h2>
-                <span>{store[params.type][params.theId - 1]?.gravity}</span>
+                <span>{store[params?.planets][params.theId - 1]?.gravity}</span>
               </div>
             </div>
           </div>
