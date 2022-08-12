@@ -4,6 +4,10 @@ const getState = ({ getStore, getActions, setStore }) => {
       people: [],
       planets: [],
       ships: [],
+      vehicles: [],
+			favorites: [],
+			person: [],
+			planet: [],
       demo: [
         {
           title: "FIRST",

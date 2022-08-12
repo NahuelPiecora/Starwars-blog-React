@@ -1,20 +1,24 @@
 import React, { useContext, useEffect, useState } from "react";
-import { getAllPeople } from "../component/api";
+import { getPerson } from "../component/api";
 import { useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
 import PropTypes from "prop-types";
+import { SinglePerson } from "../layout";
 
-function Individualperson() {
-  const { store, actions } = useContext(Context);
-  const params = useParams();
-  console.log("params", params);
-  console.log(store.people);
+// function Individualperson() {
+//   const { store, actions } = useContext(Context);
+//   const params = useParams();
+//   console.log("params", params);
+//   console.log(store.people);
 
-  const [item, setItem] = useState([]);
-  useEffect(() => {
-    actions.getAllPeople();
-    setItem(store[params.type][params.theId]);
-  }, []);
+//   const [item, setItem] = useState([]);
+//   useEffect(() => {
+//     actions.getAllPeople();
+//     setItem(store[params.type][params.theId]);
+//   }, []);
+export default function Individualperson() {
+  const { singlePerson, setSinglePerson } = useContext(SinglePerson);
+  console.log(singlePerson);
 
   return (
     <>
@@ -46,27 +50,28 @@ function Individualperson() {
             <div className="row">
               <div className="col">
                 <h2>Name</h2>
-                <span>{store[params.type][params.theId - 1]?.name} </span>
+              
+                <span>{singlePerson.name}</span>
               </div>
               <div className="col">
                 <h2>Birth Year</h2>
-                <span>{store[params.type][params.theId - 1]?.birth_year}</span>
+                {/* <span>{store[params.type][params.theId - 1]?.birth_year}</span> */}
               </div>
               <div className="col">
                 <h2>Height</h2>
-                <span>{store[params.type][params.theId - 1]?.height}</span>
+                {/* <span>{store[params.type][params.theId - 1]?.height}</span> */}
               </div>
               <div className="col">
                 <h2>Hair Color</h2>
-                <span>{store[params.type][params.theId - 1]?.hair_color}</span>
+                {/* <span>{store[params.type][params.theId - 1]?.hair_color}</span> */}
               </div>
               <div className="col">
                 <h2>Eye color</h2>
-                <span>{store[params.type][params.theId - 1]?.eye_color}</span>
+                {/* <span>{store[params.type][params.theId - 1]?.eye_color}</span> */}
               </div>
               <div className="col">
                 <h2>Skin Color </h2>
-                <span>{store[params.type][params.theId - 1]?.skin_color}</span>
+                {/* <span>{store[params.type][params.theId - 1]?.skin_color}</span> */}
               </div>
             </div>
           </div>
@@ -75,7 +80,3 @@ function Individualperson() {
     </>
   );
 }
-Individualperson.propTypes = {
-  match: PropTypes.object,
-};
-export default Individualperson;

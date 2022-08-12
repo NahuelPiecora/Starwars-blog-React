@@ -1,23 +1,27 @@
 import React, { useContext, useEffect, useState } from "react";
-
-import { getAllPlanets } from "../store/flux";
+import { getPlanet } from "../component/api";
+// import { getAllPlanets } from "../store/flux";
 import { useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
 import PropTypes from "prop-types";
+import { SinglePlanet } from "../layout";
 
-function Individualplanet() {
-  const { store, actions } = useContext(Context);
-  const params = useParams();
-  console.log("params", params);
-  console.log(store.planets);
+// function Individualplanet() {
+//   const { store, actions } = useContext(Context);
+//   const params = useParams();
+//   console.log("params", params);
+//   console.log(store.planets);
 
-  const [item, setItem] = useState([]);
-  useEffect(() => {
-    actions.getAllPlanets();
-    setItem(store[params.planets][params.theId]);
-    console.log(params);
-  }, []);
+//   const [item, setItem] = useState([]);
+//   useEffect(() => {
+//     actions.getAllPlanets();
+//     setItem(store[params.planets][params.theId]);
+//     console.log(params);
+//   }, []);
 
+export default function Individualplanet() {
+  const { single, setSingle } = useContext(SinglePlanet);
+  console.log(single);
   return (
     <>
       <div className="container text-center">
@@ -48,27 +52,28 @@ function Individualplanet() {
             <div className="row">
               <div className="col">
                 <h2>Name</h2>
-                <span>{store[params?.planets][params.theId - 1]?.name} </span>
+
+                <span> {single.name} </span>
               </div>
               <div className="col">
                 <h2>Diameter</h2>
-                <span>{store[params?.planets][params.theId - 1]?.diameter}</span>
+                <span> {single.diameter} </span>
               </div>
               <div className="col">
                 <h2>Climate</h2>
-                <span>{store[params?.planets][params.theId - 1]?.climate}</span>
+                {single.climate}
               </div>
               <div className="col">
                 <h2>Population</h2>
-                <span>{store[params?.planets][params.theId - 1]?.population}</span>
+                {single.population}
               </div>
               <div className="col">
                 <h2>Terrain</h2>
-                <span>{store[params?.planets][params.theId - 1]?.terrain}</span>
+                {single.terrain}
               </div>
               <div className="col">
                 <h2>Gravity </h2>
-                <span>{store[params?.planets][params.theId - 1]?.gravity}</span>
+                {single.gravity}
               </div>
             </div>
           </div>
@@ -77,7 +82,3 @@ function Individualplanet() {
     </>
   );
 }
-Individualplanet.propTypes = {
-  match: PropTypes.object,
-};
-export default Individualplanet;

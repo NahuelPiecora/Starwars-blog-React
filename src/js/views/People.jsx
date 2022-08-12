@@ -1,22 +1,39 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { getAllPeople } from "../component/api";
 import { GiScoutShip } from "react-icons/gi";
 import { Link } from "react-router-dom";
+import { SinglePerson } from "../layout";
+import { getPerson } from "../component/api";
+
+
+
 
 function People() {
-  const [people, setPeople] = useState([]);
+  const { singlePerson, setSinglePerson } = useContext(SinglePerson);
+  const [person, setPerson] = useState([]);
   useEffect(() => {
     const fn = async () => {
-      const apiPeople = await getAllPeople();
-      return setPeople(apiPeople);
+      const apiPerson = await getAllPeople();
+      console.log(apiPerson);
+
+      return setPerson(apiPerson);
     };
     fn();
   }, []);
 
+  const fetchOnePerson = (i) => {
+    const fn = async () => {
+      const apiPerson = await getPerson(i);
+
+      return setSinglePerson(apiPerson);
+    };
+    fn();
+    console.log(singlePerson);
+  };
   return (
     <>
       <div style={{ display: "flex", overflowX: "scroll" }}>
-        {people.map((item, index) =>( 
+        {person.map((item, index) =>( 
           <div key={index}>
             <div
               className="card"
@@ -36,6 +53,7 @@ function People() {
                 <h5 className="card-title">{item.name}</h5>
                 <p className="card-text">{item.url}</p>
                 <Link
+                onClick={() => fetchOnePerson(item.uid)}
                   to={`/people/${item.uid}`}
                   className="btn btn-outline-none"
                   style={{ backgroundColor: "red", outline: "none" }}

@@ -1,19 +1,33 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { getAllPlanets } from "../component/api";
 import { GiScoutShip } from "react-icons/gi";
 import { Link } from "react-router-dom";
+import { getPlanet } from "../component/api";
+import { SinglePlanet } from "../layout";
 
 
 function Planet() {
+  const { single, setSingle } = useContext(SinglePlanet);
   const [planet, setPlanet] = useState([]);
   useEffect(() => {
     const fn = async () => {
       const apiPlanet = await getAllPlanets();
-      console.log(apiPlanet)
+      console.log(apiPlanet);
+
       return setPlanet(apiPlanet);
     };
     fn();
   }, []);
+
+  const fetchOne = (i) => {
+    const fn = async () => {
+      const apiPlanet = await getPlanet(i);
+
+      return setSingle(apiPlanet);
+    };
+    fn();
+    console.log(single);
+  };
 
   return (
     <>
@@ -26,8 +40,7 @@ function Planet() {
                 width: "18rem",
                 display: "inline-block",
                 margin: "10px",
-                border:"1px solid white",
-             
+                border: "1px solid white",
               }}
             >
               <img
@@ -39,6 +52,7 @@ function Planet() {
                 <h5 className="card-title">{item.name}</h5>
                 <p className="card-text">{item.url}</p>
                 <Link
+                  onClick={() => fetchOne(item.uid)}
                   to={`/planets/${item.uid}`}
                   className="btn btn-outline-none"
                   style={{ backgroundColor: "red", outline: "none" }}
