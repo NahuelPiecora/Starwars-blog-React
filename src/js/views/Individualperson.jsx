@@ -3,7 +3,7 @@ import { getPerson } from "../component/api";
 import { useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
 import PropTypes from "prop-types";
-import { SinglePerson } from "../layout";
+import { SinglePpl } from "../layout";
 
 // function Individualperson() {
 //   const { store, actions } = useContext(Context);
@@ -17,7 +17,7 @@ import { SinglePerson } from "../layout";
 //     setItem(store[params.type][params.theId]);
 //   }, []);
 export default function Individualperson() {
-  const { singlePerson, setSinglePerson } = useContext(SinglePerson);
+  const { singlePerson, setSinglePerson } = useContext(SinglePpl);
   console.log(singlePerson);
 
   return (

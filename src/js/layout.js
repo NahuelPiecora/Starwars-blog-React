@@ -11,7 +11,7 @@ import Vehicle from "./views/Vehicle.jsx";
 import Individualperson from "./views/Individualperson.jsx";
 import Individualplanet from "./views/Individualplanet.jsx";
 export const SinglePlanet = React.createContext();
-export const SinglePerson = React.createContext();
+export const SinglePpl = React.createContext();
 //create your first component
 const Layout = () => {
   //the basename is used when your project is published in a subdirectory and not in the root of the domain
@@ -28,7 +28,7 @@ const Layout = () => {
           <Navbar />
           <Switch>
             <SinglePlanet.Provider value={info}>
-              <SinglePerson.Provider value={infoPerson}>
+              <SinglePpl.Provider value={infoPerson}>
                 <Route exact path="/">
                   <Home />
                 </Route>
@@ -42,7 +42,7 @@ const Layout = () => {
                 <Route exact path="/vehicle">
                   <Vehicle />
                 </Route>
-              </SinglePerson.Provider>
+              </SinglePpl.Provider>
             </SinglePlanet.Provider>
           </Switch>
           <Route></Route>

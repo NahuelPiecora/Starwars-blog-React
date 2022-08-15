@@ -2,14 +2,14 @@ import React, { useEffect, useState, useContext } from "react";
 import { getAllPeople } from "../component/api";
 import { GiScoutShip } from "react-icons/gi";
 import { Link } from "react-router-dom";
-import { SinglePerson } from "../layout";
+import { SinglePpl } from "../layout";
 import { getPerson } from "../component/api";
 
 
 
 
 function People() {
-  const { singlePerson, setSinglePerson } = useContext(SinglePerson);
+  const { singlePerson, setSinglePerson } = useContext(SinglePpl);
   const [person, setPerson] = useState([]);
   useEffect(() => {
     const fn = async () => {
